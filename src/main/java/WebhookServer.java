@@ -5,8 +5,8 @@ import java.net.InetSocketAddress;
 
 public class WebhookServer {
     public static void main(String[] args) throws IOException {
-        HttpServer httpServer = HttpServer.create(new InetSocketAddress(2306), 10);
-        httpServer.createContext("/java_webhook", new WebhookHandler());
+        HttpServer httpServer = HttpServer.create(new InetSocketAddress(WebhookConfig.port), 10);
+        httpServer.createContext(WebhookConfig.webhookPath, new WebhookHandler());
         httpServer.start();
     }
 }
